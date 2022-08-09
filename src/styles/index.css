@@ -5,4 +5,5 @@
 body {
   @appply -webkit-font-smoothing: antialiased;
   @appply -moz-osx-font-smoothing: grayscale;
+  @apply bg-[#12130F] text-[#EAE6E5]
 }
