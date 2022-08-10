@@ -28,10 +28,9 @@ const CryptoSearch = ({ crypto }) => {
         <thead>
           <tr className="border-b">
             <th></th>
-            <th className="px-4">Rank</th>
+            <th className="px-1">Rank</th>
             <th className="text-left">Coin</th>
-            <th></th>
-            <th>Price</th>
+            <th className="px-4">Price</th>
             <th>24h(%)</th>
             <th className="hidden md:table-cell">24h Volume</th>
             <th className="hidden md:table-cell">Market</th>

@@ -1,19 +1,22 @@
 import React from 'react'
 import { Sparklines, SparklinesLine } from 'react-sparklines'
+import { AiOutlineStar } from 'react-icons/ai'
 
 
 const CryptoItem = ({ item }) => {
   return (
-    <tr className='h-8 border-b overflow-hidden'>
-      <td>fav</td>
+    <tr className='h-14 border-b overflow-hidden'>
+      <td><AiOutlineStar /></td>
       <td>{item.market_cap_rank}</td>
       <td>
-        <div className="flex items-center">
+        <div className="flex flex-col md:flex-row items-center">
           <img src={item.image} alt="" className="w-8 h-8 mr-2 rounded-full" />
-          <p className="ml-2 hidden md:table-cell">{item.name}</p>
+          <div className='text-left flex flex-col md:flex-row gap-x-1'>
+            <p className="hidden md:table-cell">{item.name}</p>
+            <p className='font-semibold'>{item.symbol?.toUpperCase()}</p>
+          </div>
         </div>
       </td>
-      <td>{item.symbol?.toUpperCase()}</td>
       <td>R${item.current_price.toLocaleString()}</td>
       <td>
         {item.price_change_percentage_24h > 0
