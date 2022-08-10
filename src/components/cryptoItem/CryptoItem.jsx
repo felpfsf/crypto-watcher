@@ -8,7 +8,7 @@ const CryptoItem = ({ item }) => {
     <tr className='h-14 border-b overflow-hidden'>
       <td><AiOutlineStar /></td>
       <td>{item.market_cap_rank}</td>
-      <td>
+      <td className='py-4'>
         <div className="flex flex-col md:flex-row items-center">
           <img src={item.image} alt="" className="w-8 h-8 mr-2 rounded-full" />
           <div className='text-left flex flex-col md:flex-row gap-x-1'>

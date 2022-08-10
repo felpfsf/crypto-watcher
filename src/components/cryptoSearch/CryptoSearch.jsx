@@ -24,7 +24,7 @@ const CryptoSearch = ({ crypto }) => {
         </form>
       </div>
       {/* Crypto Coins Table */}
-      <table className="w-full border-collapse text-center">
+      <table className="w-full mt-6 border-collapse text-center">
         <thead>
           <tr className="border-b">
             <th></th>
