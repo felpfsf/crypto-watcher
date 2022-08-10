@@ -1,5 +1,9 @@
+// Hooks
 import React from 'react'
+import { Link } from 'react-router-dom'
+// Ultils
 import { Sparklines, SparklinesLine } from 'react-sparklines'
+// Icons
 import { AiOutlineStar } from 'react-icons/ai'
 
 
@@ -9,13 +13,15 @@ const CryptoItem = ({ item }) => {
       <td><AiOutlineStar /></td>
       <td>{item.market_cap_rank}</td>
       <td className='py-4'>
-        <div className="flex flex-col md:flex-row items-center">
-          <img src={item.image} alt="" className="w-8 h-8 mr-2 rounded-full" />
-          <div className='text-left flex flex-col md:flex-row gap-x-1'>
-            <p className="hidden md:table-cell">{item.name}</p>
-            <p className='font-semibold'>{item.symbol?.toUpperCase()}</p>
+        <Link to={`/details/${item.id}`}>
+          <div className="flex flex-col md:flex-row items-center">
+            <img src={item.image} alt="" className="w-8 h-8 mr-2 rounded-full" />
+            <div className='text-left flex flex-col md:flex-row gap-x-1'>
+              <p className="hidden md:table-cell">{item.name}</p>
+              <p className='font-semibold'>{item.symbol?.toUpperCase()}</p>
+            </div>
           </div>
-        </div>
+        </Link>
       </td>
       <td>R${item.current_price.toLocaleString()}</td>
       <td>
