@@ -34,8 +34,8 @@ const Navbar = () => {
           <button className='px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Out</button>
         </div >
         {/* <div className='hidden md:block'>
-          <Link to={'/account'} className='p-4'>Sign In</Link>
-          <Link to={'/account'} className='ml-2 px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Up</Link>
+          <Link to={'/signin'} className='p-4'>Sign In</Link>
+          <Link to={'/signup'} className='ml-2 px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Up</Link>
         </div> */}
 
         {/* Mobile Navbar */}
@@ -56,10 +56,10 @@ const Navbar = () => {
           </ul>
           {/* SignIn/SignUp */}
           <div className='w-full p-4 flex flex-col'>
-            <Link onClick={handleNavMenu} to={'/'}>
+            <Link onClick={handleNavMenu} to={'/signin'}>
               <button className='w-full my-2 p-2 text-xl rounded-xl shadow-xl border hover:bg-[#8FCB9B] ease-in duration-100'>Sign In</button>
             </Link>
-            <Link onClick={handleNavMenu} to={'/'}>
+            <Link onClick={handleNavMenu} to={'/signup'}>
               <button className='w-full my-2 p-2 text-xl rounded-xl shadow-xl border hover:bg-[#8FCB9B] ease-in duration-100'>Sign Up</button>
             </Link>
           </div>
