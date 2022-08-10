@@ -1,10 +1,12 @@
 import React from 'react'
 import CryptoSearch from '../components/cryptoSearch/CryptoSearch'
+import Trending from '../components/trending/Trending'
 
-const Home = ({crypto}) => {
+const Home = ({ crypto }) => {
   return (
     <div>
-      <CryptoSearch crypto={crypto}/>
+      <CryptoSearch crypto={crypto} />
+      <Trending />
     </div>
   )
 }
