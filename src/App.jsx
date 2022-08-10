@@ -7,6 +7,9 @@ import Navbar from './components/navbar/Navbar'
 // Pages
 import Account from './pages/Account'
 import Home from './pages/Home'
+import CryptoCoinDetails from './pages/CryptoCoinDetails'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 
 function App() {
   const API_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=brl&order=market_cap_desc&per_page=10&page=1&sparkline=true'
@@ -25,6 +28,11 @@ function App() {
       <Routes>
         <Route path={'/'} element={<Home crypto={crypto} />} />
         <Route path={'/account'} element={<Account />} />
+        <Route path={'/signin'} element={<SignIn />} />
+        <Route path={'/signup'} element={<SignUp />} />
+        <Route path={'/details/:coinId'} element={<CryptoCoinDetails />}>
+          <Route path={':coinId'} />
+        </Route>
       </Routes>
     </>
   )
