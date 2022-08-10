@@ -17,8 +17,8 @@ const Trending = () => {
     <div className='max-w-[1140px] w-full my-12 mx-auto px-2 py-8'>
       <h2 className='text-2xl tracking-widest font-black py-4'>Trending</h2>
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-3'>
-        {trending.map(tcoin => (
-          <div className='max-w-[1140px] w-full mx-auto p-4 px-2 border rounded-lg flex justify-between'>
+        {trending.map((tcoin, idx) => (
+          <div key={idx} className='max-w-[1140px] w-full mx-auto p-4 px-2 border rounded-lg flex justify-between'>
             <div className='w-full flex items-center justify-between'>
               <div className='flex'>
                 <img className='mr-4 rounded-full' src={tcoin.item.small} alt={tcoin.item.name} />
