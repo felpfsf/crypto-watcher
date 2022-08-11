@@ -8,7 +8,7 @@ const CryptoSearch = ({ crypto }) => {
   const [search, setSearch] = useState('')
 
   return (
-    <div className="my-2">
+    <div className="max-w-[1140px] w-full mx-auto py-2">
       {/* Search form */}
       <div className="w-full h-auto">
         <form className="flex flex-col md:flex-row items-center justify-center md:justify-around">
@@ -28,7 +28,7 @@ const CryptoSearch = ({ crypto }) => {
         <thead>
           <tr className="border-b">
             <th></th>
-            <th className="px-1">Rank</th>
+            <th className="px-4">#</th>
             <th className="text-left">Coin</th>
             <th className="px-4">Price</th>
             <th>24h(%)</th>

@@ -12,7 +12,7 @@ const CryptoItem = ({ item }) => {
     <tr className='h-14 border-b overflow-hidden'>
       <td><AiOutlineStar /></td>
       <td>{item.market_cap_rank}</td>
-      <td className='py-4'>
+      <td className='py-4 px-4'>
         <Link to={`/details/${item.id}`}>
           <div className="flex flex-col md:flex-row items-center">
             <img src={item.image} alt="" className="w-8 h-8 mr-2 rounded-full" />
@@ -23,7 +23,7 @@ const CryptoItem = ({ item }) => {
           </div>
         </Link>
       </td>
-      <td>R${item.current_price.toLocaleString()}</td>
+      <td className='px-2'>R${item.current_price.toLocaleString()}</td>
       <td>
         {item.price_change_percentage_24h > 0
           ?
