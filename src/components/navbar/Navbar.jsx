@@ -11,9 +11,9 @@ import { auth } from '../../services/firebase'
 const Navbar = () => {
   // useAuthState
   const [user] = useAuthState(auth)
-  console.log(user);
+  console.log(user)
   // Navbar state control
-  const [navMenu, setNavMenu] = useState(true)
+  const [navMenu, setNavMenu] = useState(false)
 
   const handleNavMenu = () => {
     setNavMenu(!navMenu)
@@ -36,13 +36,20 @@ const Navbar = () => {
         }
 
         {/* SignIn / SignOut / Account */}
-        <div className='hidden md:block'>
-          <AiOutlineUser className='absolute top-10 -ml-2' />
-          <Link to={'/account'} className='p-4 font-bold relative'>
-            Account
-          </Link>
-          <button className='px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Out</button>
-        </div >
+        {user
+          ?
+          <div className='hidden md:flex items-center'>
+            <AiOutlineUser className='absolute top-10 -ml-2' />
+            <Link to={'/account'} className='p-4 font-bold relative'>
+              Account
+            </Link>
+            {/* <button className='px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Out</button> */}
+            <SignOut />
+          </div >
+          :
+          // <span>não logado</span>
+            <SignIn />
+        }
 
 
         {/* Mobile Navbar */}

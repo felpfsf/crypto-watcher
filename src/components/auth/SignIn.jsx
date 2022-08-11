@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
+import {Navigate, useNavigate} from 'react-router-dom'
+
 // Firebase Auth
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { GoogleAuthProvider, signInWithPopup, signInWithRedirect } from 'firebase/auth'
 import { auth } from '../../services/firebase'
+// UI
 import { FcGoogle } from 'react-icons/fc'
 
 
 const SignIn = () => {
+  const navigate = useNavigate()
 
   // User state
   const [user, setUser] = useState({})
@@ -18,9 +22,11 @@ const SignIn = () => {
       .then((result) => {
         setUser(result.user)
         // console.log(result)
+        navigate('/')
       })
       .catch(err => console.log(err))
   }
+
   console.log(user);
   return (
     <>
