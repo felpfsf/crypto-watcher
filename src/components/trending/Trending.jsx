@@ -1,6 +1,8 @@
-import axios from 'axios'
+// React Hooks
 import React, { useEffect, useState } from 'react'
+// Utils
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Trending = () => {
   const URL_API_TRENDING = 'https://api.coingecko.com/api/v3/search/trending'
@@ -10,7 +12,6 @@ const Trending = () => {
   useEffect(() => {
     axios.get(URL_API_TRENDING).then(res => {
       setTrending(res.data.coins)
-      console.log(res.data.coins)
     }).catch(err => console.log(err))
   }, [URL_API_TRENDING])
 

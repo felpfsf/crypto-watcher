@@ -1,4 +1,5 @@
 import React from 'react'
+// Pages
 import CryptoSearch from '../components/cryptoSearch/CryptoSearch'
 import Trending from '../components/trending/Trending'
 

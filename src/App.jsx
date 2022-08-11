@@ -12,13 +12,12 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 
 function App() {
-  const API_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=brl&order=market_cap_desc&per_page=10&page=1&sparkline=true'
+  const API_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=brl&order=market_cap_desc&per_page=25&page=1&sparkline=true'
   const [crypto, setCrypto] = useState([])
 
   useEffect(() => {
     axios.get(API_URL).then(res => {
       setCrypto(res.data)
-      // console.log(res.data)
     }).catch(err => console.log(err))
   }, [API_URL])
 

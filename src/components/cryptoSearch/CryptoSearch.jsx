@@ -1,9 +1,11 @@
+// Hooks
 import React, { useState } from "react"
-import { AiOutlineSearch } from 'react-icons/ai'
+// Utils
 import CryptoItem from "../cryptoItem/CryptoItem";
+// UI
+// import { AiOutlineSearch } from 'react-icons/ai'
 
 const CryptoSearch = ({ crypto }) => {
-  console.log(crypto);
   // Search state
   const [search, setSearch] = useState('')
 

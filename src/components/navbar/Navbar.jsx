@@ -1,5 +1,7 @@
+// React Hooks
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+// UI
 import { AiOutlineMenu, AiOutlineClose, AiOutlineUser } from 'react-icons/ai'
 
 const Navbar = () => {
