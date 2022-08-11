@@ -22,7 +22,7 @@ const SignIn = () => {
       .then((result) => {
         setUser(result.user)
         // console.log(result)
-        navigate('/')
+        // navigate('/')
       })
       .catch(err => console.log(err))
   }
