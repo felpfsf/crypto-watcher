@@ -12,7 +12,7 @@ const CryptoItem = ({ item }) => {
     <tr className='h-14 border-b overflow-hidden'>
       <td><AiOutlineStar /></td>
       <td>{item.market_cap_rank}</td>
-      <td className='py-4 px-4'>
+      <td className='md:w-[190px] py-4 px-4'>
         <Link to={`/details/${item.id}`}>
           <div className="flex flex-col md:flex-row items-center">
             <img src={item.image} alt="" className="w-8 h-8 mr-2 rounded-full" />
