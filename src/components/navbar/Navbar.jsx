@@ -15,7 +15,7 @@ const Navbar = () => {
     <header className='w-full h-24 p-4 border-b-2 flex items-center justify-between'>
       <Link className='flex items-center gap-x-4' to={'/'}>
         <img className='w-16 h-16' src="/assets/crypto-favicon-white.png" alt="Crypto Watcher Logo" />
-        <h2 className='text-2xl font-audiowide'>Crypto Watcher</h2>
+        <h2 className='text-xl md:text-2xl font-audiowide'>Crypto Watcher</h2>
       </Link>
       <div>
         {/* Mobile Menu Icons */}
@@ -44,9 +44,9 @@ const Navbar = () => {
         <div className={
           navMenu
             ?
-            'md:hidden fixed left-0 top-20 w-full h-[90%] bg-[#5B9279] flex flex-col items-center justify-between z-10 ease-in duration-100'
+            'md:hidden fixed right-0 top-24 w-full h-[90%] bg-[#5B9279] flex flex-col items-center justify-between z-10 ease-in duration-100'
             :
-            'fixed left-[-100%] top-20 w-full h-[90%] bg-[#5B9279] flex flex-col items-center justify-between ease-in duration-100'
+            'fixed right-[-100%] top-24 w-full h-[90%] bg-[#5B9279] flex flex-col items-center justify-between ease-in duration-100'
         }>
           <ul className='w-full mt-12 p-4'>
             <li onClick={handleNavMenu} className='py-8 border-b-2'>

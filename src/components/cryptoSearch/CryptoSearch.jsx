@@ -1,16 +1,38 @@
 // Hooks
-import React, { useState } from "react"
+import axios from "axios";
+import React, { useEffect, useState } from "react"
 // Utils
 import CryptoItem from "../cryptoItem/CryptoItem";
 // UI
 // import { AiOutlineSearch } from 'react-icons/ai'
 
-const CryptoSearch = ({ crypto }) => {
+// const CryptoSearch = ({ crypto, counter }) => {
+const CryptoSearch = () => {
   // Search state
   const [search, setSearch] = useState('')
+  
+  // API State
+  const [crypto, setCrypto] = useState([])
+  
+  // Counter Pagination (kinda of)
+  const [count, setCount] = useState(10)
+  
+  const handleCounter = () => {
+    setCount(count + 10)
+  }
+  console.log(count);
+
+  // API Axios
+  const API_URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=brl&order=market_cap_desc&per_page=${count}&page=1&sparkline=true`
+
+  useEffect(() => {
+    axios.get(API_URL).then(res => {
+      setCrypto(res.data)
+    }).catch(err => console.log(err))
+  }, [API_URL])
 
   return (
-    <div className="max-w-[1140px] w-full mx-auto py-2">
+    <div className="max-w-[1140px] w-full mx-auto py-2 flex flex-col items-center">
       {/* Search form */}
       <div className="w-full h-auto">
         <form className="flex flex-col md:flex-row items-center justify-center md:justify-around">
@@ -53,6 +75,7 @@ const CryptoSearch = ({ crypto }) => {
           ))}
         </tbody>
       </table>
+      <button className="mt-4 w-24 px-2 bg-[#5B9279] rounded-xl" onClick={() => setCount(handleCounter)}>Load More</button>
     </div>
   )
 }
