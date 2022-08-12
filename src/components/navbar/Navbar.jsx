@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../../context/AuthContext'
 // UI
 import { AiOutlineMenu, AiOutlineClose, AiOutlineUser } from 'react-icons/ai'
+import { GoSignIn } from 'react-icons/go'
 
 
 const Navbar = () => {
@@ -101,16 +102,22 @@ const Navbar = () => {
                 <Link
                   to={'/signin'}
                   onClick={handleNavMenu}
-                  className='w-full px-2 py-4 text-xl text-center font-semibold bg-[#5B9279] border rounded-xl hover:bg-[#8FCB9B] hover:text-[#12130F] ease-in duration-100'
+                  className='w-full px-2 py-4 text-xl text-center font-semibold text-[#12130F] bg-[#8FCB9B] rounded-xl'
                 >
-                  Sign In
+                  <div className='relative flex items-center justify-center'>
+                    <GoSignIn className='absolute mr-24 top-2' />
+                    Sign In
+                  </div>
                 </Link>
                 <Link
                   to={'/signup'}
                   onClick={handleNavMenu}
-                  className='w-full px-2 py-4 text-xl text-center font-semibold bg-[#5B9279] border rounded-xl hover:bg-[#8FCB9B]'
+                  className='w-full px-2 py-4 text-xl text-center font-semibold text-[#12130F] bg-[#8FCB9B] rounded-xl'
                 >
-                  Sign Up
+                  <div className='relative flex items-center justify-center'>
+                    <AiOutlineUser className='absolute mr-24 top-1' />
+                    Sign Up
+                  </div>
                 </Link>
               </div>
             )
