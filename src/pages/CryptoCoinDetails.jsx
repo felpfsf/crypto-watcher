@@ -1,7 +1,6 @@
 // Hooks
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
 // Utils
 import axios from 'axios'
 import DOMPurify from 'dompurify'
@@ -18,7 +17,6 @@ const CryptoCoinDetails = () => {
   useEffect(() => {
     axios.get(URL_API_ID).then(res => {
       setCoinDetail(res.data)
-      console.log(res.data);
     }).catch(err => console.log(err))
   }, [URL_API_ID])
 

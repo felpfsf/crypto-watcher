@@ -1,22 +1,32 @@
 // React Hooks
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { useAuthState } from 'react-firebase-hooks/auth'
+import { Link, useNavigate } from 'react-router-dom'
+// AuthContext
+import { UserAuth } from '../../context/AuthContext'
 // UI
-import { AiOutlineMenu, AiOutlineClose, AiOutlineUser, AiOutlineGoogle } from 'react-icons/ai'
-import SignIn from '../auth/SignIn'
-import SignOut from '../auth/SignOut'
-import { auth } from '../../services/firebase'
+import { AiOutlineMenu, AiOutlineClose, AiOutlineUser } from 'react-icons/ai'
+
 
 const Navbar = () => {
-  // useAuthState
-  const [user] = useAuthState(auth)
-  console.log(user)
   // Navbar state control
   const [navMenu, setNavMenu] = useState(false)
+  // Auth State
+  const { user, logout } = UserAuth()
+  // Navigate
+  const navigate = useNavigate()
 
   const handleNavMenu = () => {
     setNavMenu(!navMenu)
+  }
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      navigate('/')
+      handleNavMenu()
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 
   return (
@@ -36,21 +46,25 @@ const Navbar = () => {
         }
 
         {/* SignIn / SignOut / Account */}
-        {user
+        {user?.email
           ?
-          <div className='hidden md:flex items-center'>
-            <AiOutlineUser className='absolute top-10 -ml-2' />
-            <Link to={'/account'} className='p-4 font-bold relative'>
-              Account
-            </Link>
-            {/* <button className='px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Out</button> */}
-            <SignOut />
-          </div >
+          (
+            <div className='hidden md:flex items-center'>
+              <AiOutlineUser className='absolute top-10 -ml-2' />
+              <Link to={'/account'} className='p-4 font-bold relative'>
+                Account
+              </Link>
+              <button onClick={handleLogout} className='px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Out</button>
+            </div >
+          )
           :
-          // <span>não logado</span>
-            <SignIn />
+          (
+            <div className='hidden md:block'>
+              <Link to={'/signin'} className='px-2 py-1 mr-4 bg-[#5B9279] rounded-xl'>Sign In</Link>
+              <Link to={'/signup'} className='px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Up</Link>
+            </div>
+          )
         }
-
 
         {/* Mobile Navbar */}
 
@@ -61,14 +75,13 @@ const Navbar = () => {
             :
             'fixed right-[-100%] top-24 w-full h-[90%] bg-[#5B9279] flex flex-col items-center justify-between ease-in duration-100'
         }>
-          {user
+          {user?.email
             ?
-            <>
+            (
               <ul className='w-full mt-12 p-4'>
                 <li>
                   <div className='flex items-end'>
-                    {user.photoURL && <img className='w-24 h-24 rounded-full border border-white/10' src={user.photoURL} alt="User Pic" referrerPolicy='no-referrer' />}
-                    <h2 className=''>Welcome <strong>{user.displayName}</strong></h2>
+                    <h2 className=''>Welcome <strong>{user.email}</strong></h2>
                   </div>
                 </li>
                 <li onClick={handleNavMenu} className='py-8 border-b-2 font-bold'>
@@ -78,18 +91,34 @@ const Navbar = () => {
                   <Link to={'/account'}>Account</Link>
                 </li>
                 <li className='py-8'>
-                  <SignOut />
+                  <button className='px-2 py-1 bg-[#5B9279] rounded-xl' onClick={handleLogout}>Sign Out</button>
                 </li>
               </ul>
-            </>
+            )
             :
-            <div className='w-full p-4 flex justify-center'>
-              <SignIn />
-            </div>
+            (
+              <div className='w-full mt-10 p-4 flex flex-col items-center justify-center gap-y-4'>
+                <Link
+                  to={'/signin'}
+                  onClick={handleNavMenu}
+                  className='w-full px-2 py-4 text-xl text-center font-semibold bg-[#5B9279] border rounded-xl hover:bg-[#8FCB9B] hover:text-[#12130F] ease-in duration-100'
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to={'/signup'}
+                  onClick={handleNavMenu}
+                  className='w-full px-2 py-4 text-xl text-center font-semibold bg-[#5B9279] border rounded-xl hover:bg-[#8FCB9B]'
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )
           }
+
         </div>
       </div>
-    </header>
+    </header >
   )
 }
 

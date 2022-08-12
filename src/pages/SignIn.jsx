@@ -1,29 +1,30 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
 
-const SignUp = () => {
+const SignIn = () => {
   const [email, setEmail] = useState('')
   const [psw, setPsw] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate()
-  const { signUp } = UserAuth()
+  const { signIn } = UserAuth()
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     setError('')
     try {
-      await signUp(email, psw)
+      await signIn(email, psw)
       navigate('/account')
     } catch (err) {
       setError(err.message)
       console.log(err.message);
     }
   }
+
   return (
     <div className='max-w-[400px] min-h-[600px] mx-auto px-4 py-20'>
-      <h1 className='text-2xl font-bold'>Sign Up</h1>
-      {error ? (<p>{error}</p>) : (null)}
+      <h1 className='text-2xl font-bold'>Sign In</h1>
+      {error ? <p>{error}</p> : null}
       <form onSubmit={handleSubmit}>
         <div>
           <label>E-mail</label>
@@ -39,8 +40,9 @@ const SignUp = () => {
         </div>
         <button>Sign In</button>
       </form>
+      <p>Don't have an account? <Link to={'/signup'}>Sign up here</Link></p>
     </div>
   )
 }
 
-export default SignUp
+export default SignIn

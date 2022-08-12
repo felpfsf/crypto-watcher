@@ -70,8 +70,8 @@ const CryptoSearch = () => {
             ) {
               return value
             }
-          }).map(item => (
-            <CryptoItem item={item} key={item.id} />
+          }).map(coin => (
+            <CryptoItem coin={coin} key={coin.id} />
           ))}
         </tbody>
       </table>
