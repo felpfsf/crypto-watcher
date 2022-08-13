@@ -10,13 +10,13 @@ import CryptoItem from "../cryptoItem/CryptoItem";
 const CryptoSearch = () => {
   // Search state
   const [search, setSearch] = useState('')
-  
+
   // API State
   const [crypto, setCrypto] = useState([])
-  
+
   // Counter Pagination (kinda of)
-  const [count, setCount] = useState(10)
-  
+  const [count, setCount] = useState(20)
+
   const handleCounter = () => {
     setCount(count + 10)
   }
@@ -75,7 +75,7 @@ const CryptoSearch = () => {
           ))}
         </tbody>
       </table>
-      <button className="mt-4 w-24 px-2 bg-[#5B9279] rounded-xl" onClick={() => setCount(handleCounter)}>Load More</button>
+      <button className="mt-4 w-32 px-2 text-[#12130F]/80 text-xl font-semibold bg-[#efb80a]  rounded-xl" onClick={() => setCount(handleCounter)}>Load More</button>
     </div>
   )
 }
