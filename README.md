@@ -12,14 +12,13 @@
 
 # Crypt Watcher
 
-Work In Progress...
-Crypto Currency Watcher React App 
+A Crypto Currency Watcher React web application.
 
 ---
 
 ## Learning
 
-Practicing more with React and TailwindCSS. API calls, React hooks (useParams, useState, useEffect)
+Practicing more with React and TailwindCSS. API calls, React hooks (useParams, useState, useEffect), Firebase and FireStore to authenticate user and store favorite coins to watch list.
 
 ---
 
@@ -30,6 +29,7 @@ Practicing more with React and TailwindCSS. API calls, React hooks (useParams, u
 - React 
 - [React Router Dom](https://www.npmjs.com/package/react-router-dom)
 - [CoinGecko API](https://www.coingecko.com/en/api) 
+- [Firebase](https://firebase.google.com/)
 - [TailwindCSS](https://tailwindcss.com/docs/guides/create-react-app)
 - [Vite Bundler](https://vitejs.dev/)
   
@@ -41,11 +41,16 @@ Practicing more with React and TailwindCSS. API calls, React hooks (useParams, u
 - [x] Mobile 375px - ideal @428px
 - [x] Desktop 1380px
 
+#### Login
+- [x] User auth with email and password(simple form)
+
+#### CRUD
+- [x] User can check favorite coins and store it in his personal watch list, the list is in user Account page
+
 ---
 
 ## Demo
-Work In Progress
-[Live Test Here]()
+[Live Test Here](https://crypto-watcher-beta.vercel.app/)
 
 ---
 
