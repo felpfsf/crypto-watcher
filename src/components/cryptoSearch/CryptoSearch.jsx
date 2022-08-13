@@ -15,7 +15,7 @@ const CryptoSearch = () => {
   const [crypto, setCrypto] = useState([])
 
   // Counter Pagination (kinda of)
-  const [count, setCount] = useState(20)
+  const [count, setCount] = useState(25)
 
   const handleCounter = () => {
     setCount(count + 10)
