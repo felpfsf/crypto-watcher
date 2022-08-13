@@ -2,7 +2,7 @@
 
  <!-- :uk: [English version](/Readme/README-en.md) / [Pt-BR version](../README.md) -->
 
- <!-- <img src="https://raw.githubusercontent.com/felpfsf/sb-fitness-app-lading/master/design/sb-fitness-mockup.png" style="border-top-left-radius: 10px; border-top-right-radius: 10px"> -->
+ <img src="https://raw.githubusercontent.com/felpfsf/crypto-watcher/main/design/crypto-watcher-banner.png" style="border-top-left-radius: 10px; border-top-right-radius: 10px">
  
 
 
