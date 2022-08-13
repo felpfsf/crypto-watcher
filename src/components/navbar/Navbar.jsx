@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../../context/AuthContext'
 // UI
 import { AiOutlineMenu, AiOutlineClose, AiOutlineUser } from 'react-icons/ai'
-import { GoSignIn } from 'react-icons/go'
+import { GoSignIn, GoSignOut } from 'react-icons/go'
 
 
 const Navbar = () => {
@@ -33,8 +33,10 @@ const Navbar = () => {
   return (
     <header className='w-full h-24 p-4 border-b-2 flex items-center justify-between'>
       <Link className='flex items-center gap-x-4' to={'/'}>
-        <img className='w-16 h-16' src="/assets/crypto-favicon-white.png" alt="Crypto Watcher Logo" />
-        <h2 className='text-xl md:text-2xl font-audiowide'>Crypto Watcher</h2>
+        <div className='bg-[#efb80a] rounded-full'>
+          <img className='w-16 h-16' src="/assets/crypto-favicon-white.png" alt="Crypto Watcher Logo" />
+        </div>
+        <h1 className='text-xl text-[#efb80a] md:text-4xl font-audiowide'>Crypto Watcher</h1>
       </Link>
       <div>
         {/* Mobile Menu Icons */}
@@ -50,19 +52,40 @@ const Navbar = () => {
         {user?.email
           ?
           (
+            // Menu Account and Home
             <div className='hidden md:flex items-center'>
               <AiOutlineUser className='absolute top-10 -ml-2' />
               <Link to={'/account'} className='p-4 font-bold relative'>
                 Account
               </Link>
-              <button onClick={handleLogout} className='px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Out</button>
+              <button onClick={handleLogout} className='relative w-[128px] px-2 py-1 text-[#12130F]/80 bg-[#efb80a] hover:brightness-110 ease-in duration-100 rounded-xl flex items-center justify-center'> <GoSignOut className='absolute mr-[84px] top-[10px]' /> Sign Out</button>
             </div >
           )
           :
           (
-            <div className='hidden md:block'>
-              <Link to={'/signin'} className='px-2 py-1 mr-4 bg-[#5B9279] rounded-xl'>Sign In</Link>
-              <Link to={'/signup'} className='px-2 py-1 bg-[#5B9279] rounded-xl'>Sign Up</Link>
+            // Sign In and Sign Up Links to show if user not logged in
+            <div className='hidden w-full p-6 md:flex items-center justify-center gap-x-8'>
+              <Link
+                to={'/signin'}
+                onClick={handleNavMenu}
+                className='w-[160px] h-10 px-8 py-2 text-center font-semibold text-[#12130F]/80 bg-[#efb80a] hover:brightness-110 ease-in duration-100 rounded-xl'
+              >
+                <div className='relative flex items-center justify-center'>
+                  <GoSignIn className='absolute mr-20 top-[6px]' />
+                  Sign In
+                </div>
+              </Link>
+
+              <Link
+                to={'/signup'}
+                onClick={handleNavMenu}
+                className='w-[160px] h-10 px-8 py-2 text-center font-semibold text-[#12130F]/80 bg-[#efb80a] hover:brightness-110 ease-in duration-100 rounded-xl'
+              >
+                <div className='relative flex items-center justify-center'>
+                  <AiOutlineUser className='absolute mr-20 top-1' />
+                  Sign Up
+                </div>
+              </Link>
             </div>
           )
         }
@@ -72,9 +95,9 @@ const Navbar = () => {
         <div className={
           navMenu
             ?
-            'md:hidden fixed right-0 top-24 w-full h-[90%] bg-[#5B9279] flex flex-col items-center justify-between z-10 ease-in duration-100'
+            'md:hidden fixed right-0 top-24 w-full h-[90%] bg-[#12130F]/50 backdrop-blur-xl flex flex-col items-center justify-between z-10 ease-in duration-100'
             :
-            'fixed right-[-100%] top-24 w-full h-[90%] bg-[#5B9279] flex flex-col items-center justify-between ease-in duration-100'
+            'fixed right-[-100%] top-24 w-full h-[90%] bg-[#12130F]/50 backdrop-blur-xl flex flex-col items-center justify-between ease-in duration-100'
         }>
           {user?.email
             ?
@@ -92,7 +115,7 @@ const Navbar = () => {
                   <Link to={'/account'}>Account</Link>
                 </li>
                 <li className='py-8'>
-                  <button className='px-2 py-1 bg-[#5B9279] rounded-xl' onClick={handleLogout}>Sign Out</button>
+                  <button className='px-2 py-2 text-xl font-semibold  bg-[#f7931a] rounded-xl' onClick={handleLogout}>Sign Out</button>
                 </li>
               </ul>
             )
@@ -102,7 +125,7 @@ const Navbar = () => {
                 <Link
                   to={'/signin'}
                   onClick={handleNavMenu}
-                  className='w-full px-2 py-4 text-xl text-center font-semibold text-[#12130F] bg-[#8FCB9B] rounded-xl'
+                  className='w-full px-2 py-4 text-xl text-center font-semibold text-[#12130F]/80 bg-[#efb80a] rounded-xl'
                 >
                   <div className='relative flex items-center justify-center'>
                     <GoSignIn className='absolute mr-24 top-2' />
@@ -112,7 +135,7 @@ const Navbar = () => {
                 <Link
                   to={'/signup'}
                   onClick={handleNavMenu}
-                  className='w-full px-2 py-4 text-xl text-center font-semibold text-[#12130F] bg-[#8FCB9B] rounded-xl'
+                  className='w-full px-2 py-4 text-xl text-center font-semibold text-[#12130F]/80 bg-[#efb80a] rounded-xl'
                 >
                   <div className='relative flex items-center justify-center'>
                     <AiOutlineUser className='absolute mr-24 top-1' />

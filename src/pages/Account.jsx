@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
 
 import FavCoins from '../components/favCoins/FavCoins'
+import { GoSignOut } from 'react-icons/go'
 
 const Account = () => {
   const { user, logout } = UserAuth()
@@ -28,7 +29,7 @@ const Account = () => {
             </div>
           </div>
           <div>
-            <button onClick={handleLogout}>Sign Out</button>
+          <button onClick={handleLogout} className='relative w-[128px] px-2 py-1 text-[#12130F]/80 bg-[#efb80a] hover:brightness-110 ease-in duration-100 rounded-xl flex items-center justify-center'> <GoSignOut className='absolute mr-[84px] top-[10px]' /> Sign Out</button>
           </div>
         </div>
         <div className='max-w-[1140px] w-full mx-auto my-12 py-8 flex items-center justify-between'>
